@@ -133,7 +133,7 @@ class GPTLanguageModel(nn.Module):
         # self.sa_heads = MultiHeadAttention(4,n_embd//4) # 4 heads of 8 dimensional vectors
         # # we concatenate to give 32 the original one in the last dimension or the channel dimension
         # self.ffwd = FeedForward(n_embd)
-        # this below * is given which unpacks the list as list is not allowed to be passed to nn.Module
+        # this below * is given which unpacks the list as list is not allowed to be passed to nn.Sequential
         self.block = nn.Sequential(*[Block(n_embd,n_head=n_head) for _ in range(n_layer)])
         self.ln_f = nn.LayerNorm(n_embd)
         self.lm_head = nn.Linear(n_embd, vocab_size)
