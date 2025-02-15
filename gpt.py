@@ -122,7 +122,7 @@ class Block(nn.Module):
  # GPU is used to sent tensors
   def forward(self,x):
     x = x + self.sa(self.ln1(x)) # the communication between the nodes is done here
-    x = x + self.ffwd(self.ln2(x)) # the compuatation is done here in order the nodes to understand what informations they got
+    x = x + self.ffwd(self.ln2(x)) # the computation is done here in order the nodes to understand what informations they got
     return x
 
 class GPTLanguageModel(nn.Module):
